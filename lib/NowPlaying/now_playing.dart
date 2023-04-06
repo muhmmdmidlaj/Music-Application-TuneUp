@@ -71,6 +71,8 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 5, 12, 25),
       appBar: AppBar(
@@ -94,90 +96,113 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: Column(
+        child: Stack(
           children: [
-            const SizedBox(
-              height: 50,
-            ),
-            Center(
-              child: ArtworkWidget(widget: widget, curentindex: currentindex),
-            ),
+            Positioned(
+                left: screenWidth * .2,
+                top: screenHight * 0.1,
+                child:
+                    ArtworkWidget(widget: widget, curentindex: currentindex)),
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 15,
-                right: 15,
-              ),
-              child: Text(
-                widget.songmodel[currentindex].displayNameWOExt,
-                style: GoogleFonts.orbitron(
-                  fontSize: 25,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w800,
+            Positioned(
+              top: screenHight * .42,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 15,
+                  right: 15,
                 ),
-                overflow: TextOverflow.fade,
-                maxLines: 1,
+                child: Text(
+                  widget.songmodel[currentindex].displayNameWOExt,
+                  style: GoogleFonts.orbitron(
+                    fontSize: 25,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w800,
+                  ),
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                ),
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            Text(
-              widget.songmodel[currentindex].artist.toString() == "unknown"
-                  ? "Unknown Aartist"
-                  : widget.songmodel[currentindex].artist.toString(),
-              style: GoogleFonts.orbitron(
-                fontSize: 15,
-                color: Colors.grey.shade700,
+            Positioned(
+              top: screenHight * .46,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  widget.songmodel[currentindex].artist.toString() == "unknown"
+                      ? "Unknown Aartist"
+                      : widget.songmodel[currentindex].artist.toString(),
+                  style: GoogleFonts.orbitron(
+                    fontSize: 15,
+                    color: Colors.grey.shade700,
+                  ),
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                ),
               ),
-              overflow: TextOverflow.fade,
-              maxLines: 1,
             ),
             const SizedBox(
               height: 20,
             ),
-            Playcontrollers(
-                count: widget.count,
-                songModel: widget.songmodel[currentindex],
-                firstsong: firstsong,
-                lastsong: lastsong),
+            Positioned(
+              top: screenHight * .5,
+              left: screenWidth * .03,
+              right: screenWidth * .03,
+              child: Playcontrollers(
+                  count: widget.count,
+                  songModel: widget.songmodel[currentindex],
+                  firstsong: firstsong,
+                  lastsong: lastsong),
+            ),
             const SizedBox(
               height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 30, left: 30),
-              child: Slider(
-                  inactiveColor: const Color.fromARGB(255, 125, 126, 126),
-                  activeColor: const Color.fromARGB(255, 48, 41, 40),
-                  value: _position.inSeconds.toDouble(),
-                  max: _duration.inSeconds.toDouble(),
-                  onChanged: (value) {
-                    setState(() {
-                      changetoseconds(value.toInt());
-                      value = value;
-                    });
-                  }),
+            Positioned(
+              top: screenHight * .6,
+              right: screenWidth * .1,
+              left: screenWidth * .1,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Slider(
+                    inactiveColor: const Color.fromARGB(255, 125, 126, 126),
+                    activeColor: const Color.fromARGB(255, 48, 41, 40),
+                    value: _position.inSeconds.toDouble(),
+                    max: _duration.inSeconds.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        changetoseconds(value.toInt());
+                        value = value;
+                      });
+                    }),
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20, left: 20, bottom: 60),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    _position.toString().split(".")[0],
-                    style: const TextStyle(
-                        fontSize: 11,
-                        color: Color.fromARGB(255, 173, 169, 169)),
-                  ),
-                  Text(
-                    _duration.toString().split(".")[0],
-                    style: const TextStyle(
-                        fontSize: 11,
-                        color: Color.fromARGB(255, 173, 169, 169)),
-                  ),
-                ],
+            Positioned(
+              top: screenHight * .65,
+              left: screenWidth * .03,
+              right: screenWidth * .03,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20, bottom: 60),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      _position.toString().split(".")[0],
+                      style: const TextStyle(
+                          fontSize: 11,
+                          color: Color.fromARGB(255, 173, 169, 169)),
+                    ),
+                    Text(
+                      _duration.toString().split(".")[0],
+                      style: const TextStyle(
+                          fontSize: 11,
+                          color: Color.fromARGB(255, 173, 169, 169)),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

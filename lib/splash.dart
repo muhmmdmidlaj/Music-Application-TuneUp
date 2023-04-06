@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:project_one_tuneup/Screens/home_Screen.dart';
+import 'package:project_one_tuneup/Screens/bottumnav.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -23,7 +21,7 @@ class _SplashState extends State<Splash> {
     await Future.delayed(const Duration(milliseconds: 10000), () {});
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const SplashScreen()));
+        context, MaterialPageRoute(builder: (context) => const Home()));
   }
 
   @override
@@ -87,38 +85,12 @@ class _SplashState extends State<Splash> {
                 child: SizedBox(
                   height: 200,
                   width: 200,
-                  child: Lottie.network(
-                      'https://assets6.lottiefiles.com/packages/lf20_wcfkpodg.json',
-                      height: 200,
-                      width: 200),
+                  child: Lottie.asset(
+                      'assets/animations/78337-music-biggest-inspiration.json'),
                 ),
               ),
             ),
           ),
-          // Positioned(
-          //   top: screenHight / 2.2,
-          //   left: screenWidth / 2.5,
-          //   child: const Padding(
-          //     padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-          //     child: SpinKitSpinningLines(
-          //       color: Colors.orange,
-          //       size: 50,
-          //     ),
-          //   ),
-          // ),
-          // Positioned(
-          //   top: screenHight / 1.7,
-          //   left: screenWidth / 20,
-          //   right: screenWidth / 30,
-          //   child: Padding(
-          //     padding: const EdgeInsets.fromLTRB(40, 50, 40, 0),
-          //     child: Image(
-          //       alignment: Alignment.center,
-          //       image: const AssetImage('assets/images/gold-music-png-19.png'),
-          //       width: screenWidth,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

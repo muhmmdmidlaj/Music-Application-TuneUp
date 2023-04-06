@@ -106,24 +106,60 @@ class _MiniplayersState extends State<Miniplayers> {
                                 Icons.skip_previous,
                                 color: Colors.white54,
                               )),
-                      CircleAvatar(
-                        backgroundColor:
-                            const Color.fromARGB(255, 99, 211, 245),
-                        child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                isplaying = !isplaying;
-                              });
-                              if (Getallsongs.audioPlayer.playing) {
-                                Getallsongs.audioPlayer.pause();
-                              } else {
-                                Getallsongs.audioPlayer.play();
-                              }
-                            },
-                            icon: Icon(
-                              isplaying ? Icons.play_arrow : Icons.pause,
-                              color: const Color.fromARGB(194, 210, 9, 9),
-                            )),
+                      // CircleAvatar(
+                      //   backgroundColor:
+                      //       const Color.fromARGB(255, 99, 211, 245),
+                      //   child: IconButton(
+                      //       onPressed: () {
+                      //         setState(() {
+                      //           isplaying = !isplaying;
+                      //         });
+                      //         if (Getallsongs.audioPlayer.playing) {
+                      //           Getallsongs.audioPlayer.pause();
+                      //           setState(() {});
+                      //         } else {
+                      //           Getallsongs.audioPlayer.play();
+                      //           setState(() {});
+                      //         }
+                      //       },
+                      //       icon: Icon(
+                      //         isplaying ? Icons.play_arrow : Icons.pause,
+                      //         color: const Color.fromARGB(194, 210, 9, 9),
+                      //       )),
+                      // ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            shape: const CircleBorder()),
+                        onPressed: () async {
+                          setState(() {});
+                          if (Getallsongs.audioPlayer.playing) {
+                            await Getallsongs.audioPlayer.pause();
+                            setState(() {});
+                          } else {
+                            await Getallsongs.audioPlayer.play();
+                            setState(() {});
+                          }
+                        },
+                        child: StreamBuilder<bool>(
+                          stream: Getallsongs.audioPlayer.playingStream,
+                          builder: (context, snapshot) {
+                            bool? playingStage = snapshot.data;
+                            if (playingStage != null && playingStage) {
+                              return const Icon(
+                                Icons.pause_circle,
+                                color: Color.fromARGB(255, 219, 219, 219),
+                                size: 35,
+                              );
+                            } else {
+                              return const Icon(
+                                Icons.play_circle,
+                                color: Color.fromARGB(255, 219, 219, 219),
+                                size: 35,
+                              );
+                            }
+                          },
+                        ),
                       ),
                       IconButton(
                           onPressed: () {

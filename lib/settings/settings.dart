@@ -76,24 +76,24 @@ class Settings extends StatelessWidget {
                     ));
               },
             ),
-            ListTile(
-              leading: Icon(
-                Icons.info,
-                color: Colors.grey.shade500,
-              ),
-              title: Text(
-                'About TuneUp',
-                style: GoogleFonts.orbitron(
-                  fontSize: 15,
-                  color: Colors.grey.shade500,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              trailing: Icon(
-                Icons.chevron_right_outlined,
-                color: Colors.grey.shade500,
-              ),
-            ),
+            // ListTile(
+            //   leading: Icon(
+            //     Icons.info,
+            //     color: Colors.grey.shade500,
+            //   ),
+            //   title: Text(
+            //     'About TuneUp',
+            //     style: GoogleFonts.orbitron(
+            //       fontSize: 15,
+            //       color: Colors.grey.shade500,
+            //       fontWeight: FontWeight.w300,
+            //     ),
+            //   ),
+            //   trailing: Icon(
+            //     Icons.chevron_right_outlined,
+            //     color: Colors.grey.shade500,
+            //   ),
+            // ),
             ListTile(
               leading: Icon(
                 Icons.help,
@@ -115,7 +115,7 @@ class Settings extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Healp(),
+                      builder: (context) => const Healp(),
                     ));
               },
             ),

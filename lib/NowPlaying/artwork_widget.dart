@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:project_one_tuneup/NowPlaying/now_playing.dart';
 
@@ -19,9 +20,11 @@ class ArtworkWidget extends StatelessWidget {
       artworkBorder: BorderRadius.circular(300),
       artworkHeight: 250,
       artworkFit: BoxFit.cover,
-      nullArtworkWidget: const CircleAvatar(
-        radius: 100,
-        backgroundImage: AssetImage('assets/images/Music.jpg'),
+      nullArtworkWidget: CircleAvatar(
+        radius: 125,
+        child: Center(
+          child: Lottie.asset('assets/animations/4876-speakers-music.json'),
+        ),
       ),
     );
   }
