@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:lottie/lottie.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:project_one_tuneup/DB/functions/function_fav.dart';
 import 'package:project_one_tuneup/DB/functions/function_mostly.dart';
@@ -36,10 +37,9 @@ class _AllMusiclistState extends State<AllMusiclist> {
               type: ArtworkType.AUDIO,
               artworkHeight: 60,
               artworkWidth: 60,
-              nullArtworkWidget: const CircleAvatar(
-                backgroundImage: AssetImage(
-                  'assets/images/istockphoto-135437114-170667a.jpg',
-                ),
+              nullArtworkWidget: CircleAvatar(
+                child: Lottie.asset(
+                    'assets/animations/69359-listening-music.json'),
                 radius: 25,
               ),
               artworkBorder: BorderRadius.circular(10),

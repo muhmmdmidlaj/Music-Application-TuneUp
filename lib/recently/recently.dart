@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
+import 'package:project_one_tuneup/DB/functions/function_mostly.dart';
+import 'package:project_one_tuneup/DB/functions/function_recently.dart';
 import 'package:project_one_tuneup/recently/recently_play.dart';
 
 class RecentlyPage extends StatefulWidget {

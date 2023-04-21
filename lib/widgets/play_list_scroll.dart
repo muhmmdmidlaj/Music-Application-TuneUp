@@ -44,7 +44,7 @@ class _ScrollPlayState extends State<ScrollPlay> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/images/images.jpeg',
+                      'assets/images/favorites.jpg',
                       width: screenWidth / 2,
                       height: screenHight / 6.8,
                       fit: BoxFit.cover,
@@ -118,7 +118,7 @@ class _ScrollPlayState extends State<ScrollPlay> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/images/suku.jpg',
+                      'assets/images/mostlyplay.jpg',
                       width: screenWidth / 2,
                       height: screenHight / 6.8,
                       fit: BoxFit.cover,

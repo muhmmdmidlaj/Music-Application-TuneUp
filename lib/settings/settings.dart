@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
+import 'package:project_one_tuneup/DB/functions/function_mostly.dart';
+import 'package:project_one_tuneup/DB/functions/function_recently.dart';
+import 'package:project_one_tuneup/settings/about.dart';
 import 'package:project_one_tuneup/settings/help.dart';
 import 'package:project_one_tuneup/settings/privacy_policy.dart';
 import 'package:project_one_tuneup/settings/terms_conditions.dart';
+import 'package:sizer/sizer.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -76,24 +81,31 @@ class Settings extends StatelessWidget {
                     ));
               },
             ),
-            // ListTile(
-            //   leading: Icon(
-            //     Icons.info,
-            //     color: Colors.grey.shade500,
-            //   ),
-            //   title: Text(
-            //     'About TuneUp',
-            //     style: GoogleFonts.orbitron(
-            //       fontSize: 15,
-            //       color: Colors.grey.shade500,
-            //       fontWeight: FontWeight.w300,
-            //     ),
-            //   ),
-            //   trailing: Icon(
-            //     Icons.chevron_right_outlined,
-            //     color: Colors.grey.shade500,
-            //   ),
-            // ),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const About(),
+                    ));
+              },
+              leading: Icon(
+                Icons.info,
+                color: Colors.grey.shade500,
+              ),
+              title: Text(
+                'About TuneUp',
+                style: GoogleFonts.orbitron(
+                  fontSize: 15,
+                  color: Colors.grey.shade500,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              trailing: Icon(
+                Icons.chevron_right_outlined,
+                color: Colors.grey.shade500,
+              ),
+            ),
             ListTile(
               leading: Icon(
                 Icons.help,
@@ -119,9 +131,40 @@ class Settings extends StatelessWidget {
                     ));
               },
             ),
+            // ListTile(
+            //   onTap: () {
+            //     reset();
+            //   },
+            //   leading: Icon(
+            //     Icons.restart_alt,
+            //     color: Colors.grey.shade500,
+            //   ),
+            //   title: Text(
+            //     'Reset App',
+            //     style: GoogleFonts.orbitron(
+            //       fontSize: 15,
+            //       color: Colors.grey.shade500,
+            //       fontWeight: FontWeight.w300,
+            //     ),
+            //   ),
+            //   trailing: Icon(
+            //     Icons.chevron_right_outlined,
+            //     color: Colors.grey.shade500,
+            //   ),
+            // ),
           ],
         ),
       ),
     );
   }
 }
+
+// Future<void> reset() async {
+//   final mostlyDB = await Hive.box('mostlyplayeddb');
+//   mostlyDB.clear();
+//   final recentdatabase = Hive.box('recenlylistnotifier');
+//   recentdatabase.clear();
+
+//   Recentfunctions.recenlylistnotifier.value.clear();
+//   MostlyplayedDb.mostlyplayednotifier.value.clear();
+// }

@@ -10,6 +10,7 @@ class Recentfunctions {
   static Future<void> addrecentlyplayed(item) async {
     final recentdatabase = await Hive.openBox('recenlylistnotifier');
     recentdatabase.add(item);
+
     getallrecently();
     recenlylistnotifier.notifyListeners();
   }
@@ -18,6 +19,7 @@ class Recentfunctions {
     final recentdatabase = await Hive.openBox('recenlylistnotifier');
     final recentlyplayedsong = recentdatabase.values.toList();
     displaydrecent();
+
     recenlylistnotifier.notifyListeners();
   }
 
@@ -26,6 +28,7 @@ class Recentfunctions {
     final recentitems = recentdatabase.values.toList();
     recenlylistnotifier.value.clear();
     recentlyplayedsong.clear();
+  
     for (int i = 0; i < recentitems.length; i++) {
       for (int j = 0; j < startsong.length; j++) {
         if (recentitems[i] == startsong[j].id) {

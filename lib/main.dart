@@ -5,6 +5,7 @@ import 'package:project_one_tuneup/provider/provider.dart';
 import 'package:project_one_tuneup/splash.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
+import 'package:sizer/sizer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

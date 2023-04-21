@@ -18,7 +18,7 @@ class _SplashState extends State<Splash> {
   }
 
   navigatetohome() async {
-    await Future.delayed(const Duration(milliseconds: 10000), () {});
+    await Future.delayed(const Duration(milliseconds: 7000), () {});
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => const Home()));
@@ -46,16 +46,19 @@ class _SplashState extends State<Splash> {
           //   ),
           // ),
           Positioned(
-            left: screenWidth / 3,
+            // left: screenWidth / 3,
             top: screenHight * .8,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-              child: Text(
-                'TuneUp',
-                style: GoogleFonts.orbitron(
-                  fontSize: 27,
-                  color: Colors.orange,
-                  fontWeight: FontWeight.w800,
+            child: SizedBox(
+              width: screenWidth,
+              height: screenHight * .2,
+              child: Center(
+                child: Text(
+                  'TuneUp',
+                  style: GoogleFonts.orbitron(
+                    fontSize: 27,
+                    color: Colors.orange,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ),

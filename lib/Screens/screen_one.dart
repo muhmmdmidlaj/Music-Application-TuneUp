@@ -81,7 +81,7 @@ class _ScreenOneState extends State<ScreenOne> {
                                 builder: (context) => const LibreryPage()));
                       },
                       child: Text(
-                        'Vew All ->',
+                        '',
                         style: GoogleFonts.orbitron(
                           color: Colors.grey,
                         ),

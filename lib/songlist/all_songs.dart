@@ -63,14 +63,23 @@ class _AllSonglistState extends State<AllSonglist> {
             ),
           );
         }
+        for (var element in item.data!) {
+          if (element.fileExtension.contains("mp3") &&
+              !element.data.contains("/WhatsApp Audio")) {
+            if (!element.displayName.contains("AUD")) {
+              startsong.add(element);
+            }
+          }
+        }
         if (audioPlayer.audioSource == null) {
           audioPlayer.setAudioSource(Getallsongs.createsongslist(item.data!));
         }
-        startsong = item.data!;
 
-        FavorateDb.initialized(item.data!);
+        // startsong = item.data!;
 
-        return AllMusiclist(songmodel: item.data!);
+        FavorateDb.initialized(startsong);
+
+        return AllMusiclist(songmodel: startsong);
       },
     );
   }

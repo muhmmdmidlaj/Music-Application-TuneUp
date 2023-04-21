@@ -100,11 +100,11 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
           children: [
             Positioned(
                 left: screenWidth * .2,
-                top: screenHight * 0.1,
+                top: screenHight * 0.04,
                 child:
                     ArtworkWidget(widget: widget, curentindex: currentindex)),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Positioned(
               top: screenHight * .42,

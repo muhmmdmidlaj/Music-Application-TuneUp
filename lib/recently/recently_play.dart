@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:project_one_tuneup/DB/functions/function_recently.dart';
 import 'package:project_one_tuneup/NowPlaying/now_playing.dart';
@@ -22,13 +23,16 @@ class _RecentlyplayedlistState extends State<Recentlyplayedlist> {
   }
 
   initialize() async {
+  
     await Recentfunctions.getallrecently();
+    
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Recentfunctions.getallrecently(),
+    
+          future: Recentfunctions.getallrecently(),
       builder: (context, item) {
         return ValueListenableBuilder(
           valueListenable: Recentfunctions.recenlylistnotifier,
@@ -47,6 +51,7 @@ class _RecentlyplayedlistState extends State<Recentlyplayedlist> {
                 ),
               );
             } else {
+             
               final temp = value.reversed.toList();
               recent = temp.toSet().toList();
               return FutureBuilder(
