@@ -38,9 +38,9 @@ class _AllMusiclistState extends State<AllMusiclist> {
               artworkHeight: 60,
               artworkWidth: 60,
               nullArtworkWidget: CircleAvatar(
+                radius: 25,
                 child: Lottie.asset(
                     'assets/animations/69359-listening-music.json'),
-                radius: 25,
               ),
               artworkBorder: BorderRadius.circular(10),
               artworkFit: BoxFit.cover,

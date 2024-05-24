@@ -23,16 +23,13 @@ class _RecentlyplayedlistState extends State<Recentlyplayedlist> {
   }
 
   initialize() async {
-  
     await Recentfunctions.getallrecently();
-    
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-    
-          future: Recentfunctions.getallrecently(),
+      future: Recentfunctions.getallrecently(),
       builder: (context, item) {
         return ValueListenableBuilder(
           valueListenable: Recentfunctions.recenlylistnotifier,
@@ -51,7 +48,6 @@ class _RecentlyplayedlistState extends State<Recentlyplayedlist> {
                 ),
               );
             } else {
-             
               final temp = value.reversed.toList();
               recent = temp.toSet().toList();
               return FutureBuilder(
